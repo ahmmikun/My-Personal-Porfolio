@@ -1673,6 +1673,18 @@ img{
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 20px;
+	white-space: nowrap;
+	overflow-wrap: normal;
+	word-break: keep-all;
+}
+
+@media only screen and (max-width: 420px){
+    .banner-section .title-box h2{
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: break-word;
+        font-size: 32px;
+    }
 }
 
 .banner-section .title-box p{
@@ -2781,16 +2793,6 @@ img{
 	width: 50px;
 	background-color: #7c06e4;
 	color: #ffffff;
-	line-height: 50px;
-	font-size: 30px;
-	text-align: center;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: all 300ms ease;
-	-moz-transition: all 300ms ease;
-	-ms-transition: all 300ms ease;
-	-o-transition: all 300ms ease;
-	transition: all 300ms ease;
 }
 
 .project-block .inner-box:hover .overlay .icon{
