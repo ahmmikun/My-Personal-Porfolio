@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
+import { CyberPanel3D } from "@/components/ui/CyberPanel3D";
 
 const projects = [
 // ... (I will keep the rest of the array consistent, let's grab the full text)
@@ -88,7 +89,7 @@ export function Projects() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="group block"
             >
-              <div className="cyber-panel relative bg-[#050505] border border-white/10 hover:border-cyber-yellow transition-all duration-300 h-[400px] flex flex-col clip-corner-tl">
+              <CyberPanel3D className="relative bg-[#050505] border border-white/10 hover:border-cyber-yellow transition-all duration-300 h-[400px] flex flex-col clip-corner-tl">
                 
                 {/* Data Header */}
                 <div className="p-4 border-b border-white/5 flex justify-between items-center group-hover:bg-cyber-yellow/10 transition-colors">
@@ -120,7 +121,7 @@ export function Projects() {
 
                 {/* Cyberpunk Decorative element */}
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-transparent group-hover:border-cyber-yellow transition-colors m-4" />
-              </div>
+              </CyberPanel3D>
             </motion.a>
           ))}
         </div>

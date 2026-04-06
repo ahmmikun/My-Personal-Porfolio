@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { HeroCanvas } from "@/components/3d/HeroCanvas";
 
 export function Hero() {
   return (
@@ -52,15 +53,40 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="mt-4 flex flex-wrap gap-6"
           >
-            <a href="#Projects" className="cyber-panel clip-corner-br px-8 py-4 text-cyber-yellow font-bold uppercase tracking-widest text-sm hover:bg-cyber-yellow hover:text-black transition-all duration-300 group flex items-center gap-2 border border-cyber-yellow">
-              Explore Projects
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
+            <motion.a 
+              href="#Projects" 
+              className="group relative inline-flex h-14 items-center justify-center overflow-hidden clip-corner-br border border-cyber-yellow/40 bg-cyber-yellow/5 px-8 font-medium text-cyber-yellow shadow-[0_0_15px_rgba(255,211,0,0.1)] transition-all hover:bg-cyber-yellow/10 hover:border-cyber-yellow hover:shadow-[0_0_30px_rgba(255,211,0,0.5)]"
+              whileHover="hover"
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="absolute inset-0 -translate-x-[200%] bg-gradient-to-r from-transparent via-cyber-yellow/30 to-transparent skew-x-[30deg] transition-transform duration-1000 group-hover:translate-x-[200%]" />
+              <span className="mr-2 uppercase tracking-widest text-sm font-bold z-10">Explore Projects</span>
+              <motion.span 
+                className="z-10"
+                variants={{ hover: { x: 6 } }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </motion.span>
+            </motion.a>
             
-            <a href="/CV-Resume-1.pdf" download="Salman-Ahmad-Resume.pdf" className="cyber-panel clip-corner-tl px-8 py-4 text-white font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300 group flex items-center gap-2 border border-white/20 hover:border-white">
-              <svg className="w-4 h-4 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-              Resume
-            </a>
+            <motion.a 
+              href="/CV-Resume-1.pdf" 
+              download="Salman-Ahmad-Resume.pdf" 
+              className="group relative inline-flex h-14 items-center justify-center overflow-hidden clip-corner-tl border border-white/20 bg-white/5 backdrop-blur-sm px-8 font-medium text-white transition-all hover:bg-white/10 hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+              whileHover="hover"
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="absolute inset-0 -translate-x-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[30deg] transition-transform duration-1000 group-hover:translate-x-[200%]" />
+              <span className="ml-2 uppercase tracking-widest text-sm font-bold z-10">Resume</span>
+              <motion.span 
+                className="mr-2 z-10 order-first"
+                variants={{ hover: { y: -4 } }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              </motion.span>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -76,6 +102,9 @@ export function Hero() {
             <div className="absolute inset-0 border border-cyber-yellow/20 rounded-full animate-[spin_10s_linear_infinite]" />
             <div className="absolute inset-4 border border-dashed border-white/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
             
+            {/* 3D Construct in the background of Profile */}
+            <HeroCanvas />
+
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 clip-corner-tl clip-corner-br border-2 border-cyber-yellow/40 transition-all hover:border-cyber-yellow" 
                  style={{ backgroundImage: "url('/Profile.png')", backgroundSize: 'cover' }}>
             </div>

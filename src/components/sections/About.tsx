@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Terminal, GraduationCap, BookOpen, ChevronRight, Code2 } from "lucide-react";
 import { SiNextdotjs, SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiGit, SiTypescript } from "react-icons/si";
-
+import { CyberPanel3D } from "@/components/ui/CyberPanel3D";
 export function About() {
   return (
     <section id="About" className="relative py-24 min-h-screen flex items-center bg-black/50 z-10">
@@ -44,7 +44,7 @@ export function About() {
             className="lg:col-span-7 flex flex-col gap-8"
           >
             {/* Bio Card */}
-            <div className="cyber-panel p-8 md:p-10 bg-[#050505] border border-white/10 relative overflow-hidden group hover:border-cyber-yellow/40 transition-colors duration-500 rounded-sm">
+            <CyberPanel3D className="p-8 md:p-10 bg-[#050505] border border-white/10 relative overflow-hidden group hover:border-cyber-yellow/40 transition-colors duration-500 rounded-sm">
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyber-yellow to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               
               <div className="flex items-center gap-3 mb-6">
@@ -78,7 +78,7 @@ export function About() {
                   <div className="text-xs tracking-widest text-[#a0a0a0] uppercase font-bold">Hours</div>
                 </div>
               </div>
-            </div>
+            </CyberPanel3D>
           </motion.div>
 
           {/* Right Column: Education & Experience Timelines */}

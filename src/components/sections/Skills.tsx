@@ -20,6 +20,7 @@ import {
 } from "react-icons/si";
 
 import { FaMicrochip, FaGlobe, FaPaintBrush, FaDatabase } from "react-icons/fa";
+import { CyberPanel3D } from "@/components/ui/CyberPanel3D";
 
 const skillCategories = [
   {
