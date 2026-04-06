@@ -21,7 +21,7 @@ export function Navbar() {
     <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="w-1/4 flex-shrink-0 flex items-center">
+          <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="font-orbitron text-xl font-bold tracking-widest text-white group">
               SALMAN<span className="text-cyber-yellow group-hover:drop-shadow-[0_0_8px_rgba(255,211,0,0.8)] transition-all">AHMAD</span>
             </Link>
@@ -45,7 +45,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Right - Resume Button */}
-          <div className="hidden md:flex w-1/4 justify-end items-center">
+          <div className="hidden md:flex justify-end items-center">
             <a 
               href="/CV-Resume-1.pdf" 
               download="Salman-Ahmad-Resume.pdf"
@@ -59,10 +59,10 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex w-1/4 justify-end items-center">
+          <div className="md:hidden flex justify-end items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-cyber-gray hover:text-white transition-colors focus:outline-none"
+              className="text-cyber-yellow hover:text-white transition-colors focus:outline-none p-2 border border-cyber-yellow/30 bg-black/50 backdrop-blur-md rounded-md z-50 relative pointer-events-auto shadow-[0_0_15px_rgba(255,211,0,0.15)]"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

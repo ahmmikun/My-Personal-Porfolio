@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CyberPanel3D } from "@/components/ui/CyberPanel3D";
 
 const certificates = [
   {
@@ -67,7 +68,7 @@ export function Certificates() {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group relative cursor-pointer"
             >
-              <div className="cyber-panel p-2 bg-black border border-white/10 hover:border-cyber-yellow transition-colors duration-300 relative overflow-hidden">
+              <CyberPanel3D className="p-2 bg-black border border-white/10 hover:border-cyber-yellow transition-colors duration-300 relative overflow-hidden">
                 
                 {/* Image Container */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-white/5">
@@ -87,7 +88,7 @@ export function Certificates() {
                   </h4>
                   <div className="w-2 h-2 shrink-0 rounded-full bg-cyber-yellow shadow-[0_0_5px_rgba(255,211,0,0.8)]" />
                 </div>
-              </div>
+              </CyberPanel3D>
             </motion.div>
           ))}
         </div>
