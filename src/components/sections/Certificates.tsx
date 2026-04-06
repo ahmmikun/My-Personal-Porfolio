@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const certificates = [
   {
     id: 1,
-    title: "HTML Certificate",
-    image: "https://i.ibb.co/c3yvXjh/UC-d185cc63-2789-45bb-b3cb-6fecc026e95a.jpg"
+    title: "Responsive Web Design Certification",
+    image: "https://i.ibb.co/zh9zN2RM/image.png"
   },
   {
     id: 2,
@@ -82,10 +82,10 @@ export function Certificates() {
                 </div>
 
                 <div className="p-4 flex items-center justify-between border-t border-white/5 mt-2 bg-[#0a0a0a]">
-                  <h4 className="text-sm font-bold text-white uppercase tracking-wider truncate mr-2">
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider line-clamp-2 mr-2">
                     {cert.title}
                   </h4>
-                  <div className="w-2 h-2 rounded-full bg-cyber-yellow shadow-[0_0_5px_rgba(255,211,0,0.8)]" />
+                  <div className="w-2 h-2 shrink-0 rounded-full bg-cyber-yellow shadow-[0_0_5px_rgba(255,211,0,0.8)]" />
                 </div>
               </div>
             </motion.div>
