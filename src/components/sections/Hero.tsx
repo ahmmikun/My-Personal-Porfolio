@@ -106,7 +106,7 @@ export function Hero() {
             <HeroCanvas />
 
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 clip-corner-tl clip-corner-br border-2 border-cyber-yellow/40 transition-all hover:border-cyber-yellow" 
-                 style={{ backgroundImage: "url('/Profile.png')", backgroundSize: 'cover' }}>
+                 style={{ backgroundImage: "url('https://github.com/ahmmikun.png')", backgroundSize: 'cover' }}>
             </div>
           </div>
         </motion.div>

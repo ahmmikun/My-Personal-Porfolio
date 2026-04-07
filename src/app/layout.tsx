@@ -33,7 +33,7 @@ export default function RootLayout({
       lang="en"
       className={`${orbitron.variable} ${chakraPetch.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col relative bg-black text-white selection:bg-cyber-yellow selection:text-black">
+      <body suppressHydrationWarning className="min-h-full flex flex-col relative bg-black text-white selection:bg-cyber-yellow selection:text-black">
         <div className="cyber-noise"></div>
         <div className="scanline"></div>
         <Navbar />
