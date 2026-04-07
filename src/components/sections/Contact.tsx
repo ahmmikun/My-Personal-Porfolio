@@ -1,9 +1,46 @@
 "use client";
 
+import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { CyberPanel3D } from "@/components/ui/CyberPanel3D";
+
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      username: formData.get("username"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      contact_message: formData.get("contact_message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="Contact" className="relative py-24 min-h-screen flex items-center bg-[#050505] z-10 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -78,32 +115,48 @@ export function Contact() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <CyberPanel3D className="p-8 bg-black/60 border border-white/10 backdrop-blur-sm relative clip-corner-br">
-              <form action="https://formspree.io/f/mbjwgegb" method="POST" className="h-full">
+              <form onSubmit={handleSubmit} className="h-full">
                  <div className="absolute top-0 right-0 w-24 h-[1px] bg-cyber-yellow/50" />
                  <div className="grid gap-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                        <div className="space-y-2">
                           <label className="text-xs uppercase tracking-widest text-cyber-gray font-orbitron ml-1">Identifier</label>
-                          <input type="text" name="username" required placeholder="Your Name" className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all" />
+                          <input type="text" name="username" required placeholder="Your Name" disabled={isSubmitting} className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all disabled:opacity-50" />
                        </div>
                        <div className="space-y-2">
                           <label className="text-xs uppercase tracking-widest text-cyber-gray font-orbitron ml-1">Comm Link</label>
-                          <input type="email" name="email" required placeholder="Your Email" className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all" />
+                          <input type="email" name="email" required placeholder="Your Email" disabled={isSubmitting} className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all disabled:opacity-50" />
                        </div>
                     </div>
                     
                     <div className="space-y-2">
                        <label className="text-xs uppercase tracking-widest text-cyber-gray font-orbitron ml-1">Subject Vector</label>
-                       <input type="text" name="subject" required placeholder="Transmission Subject" className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all" />
+                       <input type="text" name="subject" required placeholder="Transmission Subject" disabled={isSubmitting} className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all disabled:opacity-50" />
                     </div>
 
                     <div className="space-y-2">
                        <label className="text-xs uppercase tracking-widest text-cyber-gray font-orbitron ml-1">Data Payload</label>
-                       <textarea name="contact_message" required rows={5} placeholder="Compose your message..." className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all resize-none" />
+                       <textarea name="contact_message" required rows={5} placeholder="Compose your message..." disabled={isSubmitting} className="w-full bg-[#0a0a0a] border border-white/10 p-3 text-white placeholder-cyber-gray/50 focus:outline-none focus:border-cyber-yellow focus:ring-1 focus:ring-cyber-yellow transition-all resize-none disabled:opacity-50" />
                     </div>
 
-                    <button type="submit" className="group mt-2 border border-cyber-yellow bg-cyber-yellow/10 text-cyber-yellow uppercase tracking-widest text-sm font-bold py-4 flex items-center justify-center gap-3 hover:bg-cyber-yellow hover:text-black transition-all">
-                       <Send className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" /> Transmit Data
+                    {submitStatus === "success" && (
+                       <div className="p-4 border border-green-500/50 bg-green-500/10 text-green-400 text-sm font-orbitron uppercase tracking-wider flex items-center gap-2">
+                          <CheckCircle2 className="w-5 h-5" /> Transmission Successful
+                       </div>
+                    )}
+                    
+                    {submitStatus === "error" && (
+                       <div className="p-4 border border-red-500/50 bg-red-500/10 text-red-500 text-sm font-orbitron uppercase tracking-wider flex items-center gap-2">
+                          <AlertCircle className="w-5 h-5" /> Transmission Failed
+                       </div>
+                    )}
+
+                    <button type="submit" disabled={isSubmitting} className="group mt-2 border border-cyber-yellow bg-cyber-yellow/10 text-cyber-yellow uppercase tracking-widest text-sm font-bold py-4 flex items-center justify-center gap-3 hover:bg-cyber-yellow hover:text-black transition-all disabled:opacity-50 disabled:hover:bg-cyber-yellow/10 disabled:hover:text-cyber-yellow disabled:cursor-not-allowed">
+                       {isSubmitting ? (
+                          <><Loader2 className="w-4 h-4 animate-spin" /> Transmitting...</>
+                       ) : (
+                          <><Send className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" /> Transmit Data</>
+                       )}
                     </button>
                  </div>
               </form>
