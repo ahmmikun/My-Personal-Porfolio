@@ -17,7 +17,7 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="https://github.com/ahmmikun" target="_blank" className="text-cyber-gray hover:text-cyber-yellow transition-all hover:scale-110">
+            <Link href="https://github.com/ahmmikun" target="_blank" aria-label="ahmmikun GitHub" className="text-cyber-gray hover:text-cyber-yellow transition-all hover:scale-110">
               <Code2 className="w-6 h-6" />
             </Link>
             <Link href="mailto:salmansheikh2500@gmail.com" className="text-cyber-gray hover:text-cyber-yellow transition-all hover:scale-110">

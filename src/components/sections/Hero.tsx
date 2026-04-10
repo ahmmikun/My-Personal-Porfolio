@@ -34,6 +34,7 @@ export function Hero() {
             <h1 className="text-5xl lg:text-7xl font-bold font-orbitron text-white leading-tight uppercase tracking-wide">
               I'm <span className="text-cyber-yellow drop-shadow-[0_0_8px_rgba(255,211,0,0.4)]">Salman Ahmad.</span>
             </h1>
+            <p className="text-cyber-gray text-sm mt-2">Also known as <strong>ahmmikun</strong> in developer communities.</p>
           </motion.div>
 
           <motion.div
@@ -71,8 +72,8 @@ export function Hero() {
             </motion.a>
             
             <motion.a 
-              href="/CV-Resume-1.pdf" 
-              download="Salman-Ahmad-Resume.pdf" 
+              href="https://www.linkedin.com/in/ahmmikun/" 
+              target="_blank" 
               className="group relative inline-flex h-14 items-center justify-center overflow-hidden clip-corner-tl border border-white/20 bg-white/5 backdrop-blur-sm px-8 font-medium text-white transition-all hover:bg-white/10 hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
@@ -106,6 +107,7 @@ export function Hero() {
             <HeroCanvas />
 
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 clip-corner-tl clip-corner-br border-2 border-cyber-yellow/40 transition-all hover:border-cyber-yellow" 
+                 aria-label="Salman Ahmad aka ahmmikun developer"
                  style={{ backgroundImage: "url('https://github.com/ahmmikun.png')", backgroundSize: 'cover' }}>
             </div>
           </div>

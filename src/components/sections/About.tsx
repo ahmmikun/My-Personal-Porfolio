@@ -56,7 +56,7 @@ export function About() {
               
               <div className="space-y-4">
                 <p className="text-cyber-gray text-base md:text-lg leading-relaxed font-light">
-                  Based in Lahore, Pakistan, I am a passionate Full-Stack Developer specializing in engineering high-performance web applications and responsive automation systems.
+                  Based in Lahore, Pakistan, I am a passionate Full-Stack Developer specializing in engineering high-performance web applications and responsive automation systems. Salman Ahmad, known online as ahmmikun, builds automation tools and modern web applications.
                 </p>
                 <p className="text-cyber-gray text-base md:text-lg leading-relaxed font-light">
                   With a strong foundation in modern JavaScript frameworks and scalable backend architecture, I transform complex requirements into elegant, interactive digital experiences. My focus lies in writing clean, modular code and pushing the boundaries of web UI/UX.

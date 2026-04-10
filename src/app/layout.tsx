@@ -16,8 +16,8 @@ const chakraPetch = Chakra_Petch({
 });
 
 export const metadata: Metadata = {
-  title: "Cyberpunk Portfolio | Developer",
-  description: "A premium cinematic cyberpunk developer portfolio.",
+  title: "Salman Ahmad (ahmmikun) | Developer Portfolio",
+  description: "Salman Ahmad, also known as ahmmikun, is a developer specializing in automation, bots, and web development.",
   icons: {
     icon: "/favicon.ico",
   },

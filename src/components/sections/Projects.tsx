@@ -67,6 +67,7 @@ export function Projects() {
           <motion.a 
             href="https://github.com/ahmmikun"
             target="_blank"
+            aria-label="ahmmikun GitHub"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -127,7 +128,7 @@ export function Projects() {
         </div>
         
         <div className="mt-8 flex justify-center md:hidden">
-          <a href="https://github.com/ahmmikun" target="_blank" className="cyber-panel px-6 py-3 text-cyber-yellow uppercase tracking-widest text-sm font-bold shadow-[0_0_15px_rgba(255,211,0,0.2)]">
+          <a href="https://github.com/ahmmikun" target="_blank" aria-label="ahmmikun GitHub" className="cyber-panel px-6 py-3 text-cyber-yellow uppercase tracking-widest text-sm font-bold shadow-[0_0_15px_rgba(255,211,0,0.2)]">
             Access All Data
           </a>
         </div>
