@@ -108,7 +108,7 @@ export function Hero() {
 
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-10 clip-corner-tl clip-corner-br border-2 border-cyber-yellow/40 transition-all hover:border-cyber-yellow" 
                  aria-label="Salman Ahmad aka ahmmikun developer"
-                 style={{ backgroundImage: "url('https://github.com/ahmmikun.png')", backgroundSize: 'cover' }}>
+                 style={{ backgroundImage: "url('https://www.pinterest.com/pin/1111192908076292609/')", backgroundSize: 'cover' }}>
             </div>
           </div>
         </motion.div>
