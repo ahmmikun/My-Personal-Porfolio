@@ -10,7 +10,7 @@ import { BackgroundScene } from "@/components/3d/BackgroundScene";
 
 export default function Home() {
   return (
-    <main className="flex-1 w-full flex flex-col relative">
+    <main className="flex-1 w-full flex flex-col relative" aria-label="Portfolio">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -19,17 +19,16 @@ export default function Home() {
             "@type": "Person",
             name: "Salman Ahmad",
             alternateName: "ahmmikun",
+            jobTitle: "Full Stack Developer",
             url: "https://ahmmikun.vercel.app",
             sameAs: [
               "https://github.com/ahmmikun",
+              "https://www.linkedin.com/in/ahmmikun/",
               "https://instagram.com/ahmmikun"
             ]
           })
         }}
       />
-      <p style={{ display: "none" }}>
-        ahmmikun ahmmikun developer ahmmikun portfolio ahmmikun github ahmmikun projects
-      </p>
       <BackgroundScene />
       <Hero />
       <About />

@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useTheme } from "next-themes";
 import * as THREE from "three";
 
-function ParticleField({ theme }: { theme: string | undefined }) {
+function ParticleField({ theme, isReducedMotion }: { theme: string | undefined, isReducedMotion: boolean }) {
   const pointsRef = useRef<THREE.Points>(null);
 
-  // Generate random points in a sphere
-  const particlesCount = 800;
+  // Reduce particle count on mobile or if reduced motion is preferred
+  const particlesCount = isReducedMotion ? 200 : (typeof window !== 'undefined' && window.innerWidth < 768 ? 400 : 800);
+  
   const [positions, colors] = useMemo(() => {
     const positions = new Float32Array(particlesCount * 3);
     const colors = new Float32Array(particlesCount * 3);
@@ -27,13 +28,13 @@ function ParticleField({ theme }: { theme: string | undefined }) {
         positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta); // y
         positions[i * 3 + 2] = radius * Math.cos(phi); // z
 
-        // Cyber yellow (#FFD300) vs subtle light blue/gray for light mode
+        // Cyber yellow (#FFD300) and Cyber green (#22C55E)
         if (isDark) {
-             // 80% cyber yellow, 20% white
-             if (Math.random() > 0.2) colorObj.setHex(0xFFD300);
-             else colorObj.setHex(0xffffff);
+             const rand = Math.random();
+             if (rand > 0.8) colorObj.setHex(0xFFD300); // 20% Yellow
+             else if (rand > 0.6) colorObj.setHex(0x22C55E); // 20% Green
+             else colorObj.setHex(0x475569); // 60% Slate Gray
         } else {
-             // 80% dark gray, 20% cyber yellow
              if (Math.random() > 0.2) colorObj.setHex(0x333333);
              else colorObj.setHex(0xFFD300);
         }
@@ -41,10 +42,10 @@ function ParticleField({ theme }: { theme: string | undefined }) {
         colorObj.toArray(colors, i * 3);
     }
     return [positions, colors];
-  }, [theme]);
+  }, [theme, particlesCount]);
 
   useFrame((state, delta) => {
-    if (pointsRef.current) {
+    if (pointsRef.current && !isReducedMotion) {
       pointsRef.current.rotation.y += delta * 0.05;
       pointsRef.current.rotation.x += delta * 0.02;
     }
@@ -63,10 +64,10 @@ function ParticleField({ theme }: { theme: string | undefined }) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={isDarkTheme(theme) ? 0.15 : 0.2}
+        size={isDarkTheme(theme) ? 0.2 : 0.25}
         vertexColors
         transparent
-        opacity={isDarkTheme(theme) ? 0.6 : 0.3}
+        opacity={isDarkTheme(theme) ? 0.8 : 0.3}
         sizeAttenuation={true}
       />
     </points>
@@ -77,7 +78,7 @@ function GridPlane({ theme }: { theme: string | undefined }) {
     const isDark = isDarkTheme(theme);
     return (
       <gridHelper 
-        args={[100, 100, isDark ? 0xFFD300 : 0x000000, isDark ? 0x222222 : 0xcccccc]} 
+        args={[100, 100, isDark ? 0x22C55E : 0x000000, isDark ? 0x1E293B : 0xcccccc]} 
         position={[0, -10, 0]} 
         rotation={[0, 0, 0]}
       />
@@ -91,14 +92,30 @@ function isDarkTheme(theme: string | undefined) {
 
 export function BackgroundScene() {
   const { resolvedTheme } = useTheme();
+  const [isReducedMotion, setIsReducedMotion] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setIsReducedMotion(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
-        <fog attach="fog" args={[isDarkTheme(resolvedTheme) ? '#000000' : '#ffffff', 10, 40]} />
-        <ambientLight intensity={isDarkTheme(resolvedTheme) ? 0.2 : 0.8} />
-        <ParticleField theme={resolvedTheme} />
-        <GridPlane theme={resolvedTheme} />
+    <div className="fixed inset-0 z-0 pointer-events-none opacity-60">
+      <Canvas camera={{ position: [0, 0, 15], fov: 60 }} dpr={[1, 2]}>
+        <React.Suspense fallback={null}>
+          <fog attach="fog" args={[isDarkTheme(resolvedTheme) ? '#0A0A0F' : '#ffffff', 10, 40]} />
+          <ambientLight intensity={isDarkTheme(resolvedTheme) ? 0.2 : 0.8} />
+          <ParticleField theme={resolvedTheme} isReducedMotion={isReducedMotion} />
+          <GridPlane theme={resolvedTheme} />
+        </React.Suspense>
       </Canvas>
     </div>
   );
