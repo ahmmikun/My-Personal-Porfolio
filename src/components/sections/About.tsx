@@ -82,9 +82,14 @@ export function About() {
               </div>
               
               <div className="space-y-4">
-                  Based in Lahore, Pakistan, I am a passionate Full-Stack Developer specializing in engineering high-performance web applications and responsive automation systems. Operating online under the alias 'ahmmikun', I build automation tools and modern web experiences.
                 <p className="text-cyber-gray text-base md:text-lg leading-relaxed font-light">
-                  With a strong foundation in modern JavaScript frameworks and scalable backend architecture, I transform complex requirements into elegant, interactive digital experiences. My focus lies in writing clean, modular code and pushing the boundaries of web UI/UX.
+                  Based in Lahore, Pakistan, I am a passionate Full-Stack Developer specializing in engineering high-performance web applications and responsive automation systems.
+                </p>
+                <p className="text-cyber-gray text-base md:text-lg leading-relaxed font-light">
+                  Operating online under the alias <span className="text-cyber-yellow font-bold">'ahmmikun'</span>, I build robust automation tools and modern web experiences. With a strong foundation in modern JavaScript frameworks and scalable backend architecture, I transform complex requirements into elegant, interactive digital solutions.
+                </p>
+                <p className="text-cyber-gray text-base md:text-lg leading-relaxed font-light">
+                  My focus lies in writing clean, modular code and continually pushing the boundaries of web UI/UX.
                 </p>
               </div>
               
@@ -97,7 +102,7 @@ export function About() {
                   <div className="text-xs tracking-widest text-cyber-gray uppercase font-bold">Projects</div>
                 </div>
                 <div className="text-center border-l border-cyber-border group/stat">
-                  <div className="text-4xl font-orbitron font-bold text-cyber-green mb-2 group-hover/stat:scale-110 transition-transform drop-shadow-[0_0_12px_rgba(34,197,94,0.2)] flex justify-center">
+                  <div className="text-4xl font-orbitron font-bold text-cyber-yellow mb-2 group-hover/stat:scale-110 transition-transform drop-shadow-[0_0_12px_rgba(255,211,0,0.2)] flex justify-center">
                     <AnimatedCounter to={10} />+
                   </div>
                   <div className="text-xs tracking-widest text-cyber-gray uppercase font-bold">Tools / Dev</div>
@@ -123,21 +128,21 @@ export function About() {
           >
             {/* Experience Section */}
             <h3 className="text-lg font-orbitron text-cyber-white mb-10 uppercase tracking-widest flex items-center gap-4">
-              <span className="w-3 h-3 bg-cyber-green rotate-45 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse" /> 
+              <span className="w-3 h-3 bg-cyber-yellow rotate-45 shadow-[0_0_8px_rgba(255,211,0,0.6)] animate-pulse" /> 
               Experience
             </h3>
             
-            <div className="space-y-10 relative before:absolute before:inset-0 before:ml-[1.4rem] before:-translate-x-px before:h-full before:w-[2px] before:bg-gradient-to-b before:from-cyber-green/60 before:via-cyber-white/10 before:to-transparent">
+            <div className="space-y-10 relative before:absolute before:inset-0 before:ml-[1.4rem] before:-translate-x-px before:h-full before:w-[2px] before:bg-gradient-to-b before:from-cyber-yellow/60 before:via-cyber-yellow/10 before:to-transparent">
                   
               {/* Exp Item 1 - Corvit */}
               <div className="relative flex items-start gap-8 group">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-green z-10 shrink-0 shadow-[0_0_15px_rgba(34,197,94,0.3)] group-hover:bg-cyber-green/10 transition-colors rotate-45 group-hover:rotate-0 duration-500">
-                    <Terminal className="w-5 h-5 text-cyber-green -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-yellow z-10 shrink-0 shadow-[0_0_15px_rgba(255,211,0,0.3)] transition-colors rotate-45 group-hover:rotate-0 duration-500">
+                    <Terminal className="w-5 h-5 text-cyber-yellow -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
                   </div>
-                  <div className="flex-1 pb-4 border-b border-cyber-border group-hover:border-cyber-green/30 transition-colors">
+                  <div className="flex-1 pb-4 border-b border-cyber-border group-hover:border-cyber-yellow/30 transition-colors">
                     <div className="flex flex-col mb-1">
-                        <span className="text-[10px] sm:text-xs font-orbitron text-cyber-green tracking-widest mb-1">2026</span>
-                        <h4 className="font-bold text-cyber-white text-base sm:text-lg leading-tight group-hover:text-cyber-green transition-colors">Full Stack Developer</h4>
+                        <span className="text-[10px] sm:text-xs font-orbitron text-cyber-yellow tracking-widest mb-1">2026</span>
+                        <h4 className="font-bold text-cyber-white text-base sm:text-lg leading-tight group-hover:text-cyber-yellow transition-colors">Full Stack Developer</h4>
                     </div>
                     <p className="text-xs sm:text-sm text-cyber-gray mb-3">Corvit Networks</p>
                     
@@ -153,7 +158,7 @@ export function About() {
 
               {/* Exp Item 2 - Open Source */}
               <div className="relative flex items-start gap-8 group">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-border z-10 shrink-0 group-hover:border-cyber-yellow group-hover:bg-cyber-yellow/5 transition-colors rotate-45 group-hover:rotate-0 duration-500">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-border z-10 shrink-0 group-hover:border-cyber-yellow transition-colors rotate-45 group-hover:rotate-0 duration-500">
                     <Code2 className="w-5 h-5 text-cyber-gray group-hover:text-cyber-yellow -rotate-45 group-hover:rotate-0 transition-all duration-500" />
                   </div>
                   <div className="flex-1 pb-4 group-hover:border-cyber-yellow/30 transition-colors">
@@ -184,7 +189,7 @@ export function About() {
               
               {/* Edu Item 1 - BSCS */}
               <div className="relative flex items-start gap-8 group">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-border z-10 shrink-0 group-hover:border-cyber-yellow group-hover:bg-cyber-yellow/5 transition-colors rotate-45 group-hover:rotate-0 duration-500">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-border z-10 shrink-0 group-hover:border-cyber-yellow transition-colors rotate-45 group-hover:rotate-0 duration-500">
                     <GraduationCap className="w-5 h-5 text-cyber-gray group-hover:text-cyber-yellow -rotate-45 group-hover:rotate-0 transition-all duration-500" />
                   </div>
                   <div className="flex-1 pb-4 border-b border-cyber-border group-hover:border-cyber-yellow/30 transition-colors">
@@ -198,7 +203,7 @@ export function About() {
 
               {/* Edu Item 2 - HSSC */}
               <div className="relative flex items-start gap-8 group">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-border z-10 shrink-0 group-hover:border-cyber-yellow group-hover:bg-cyber-yellow/5 transition-colors rotate-45 group-hover:rotate-0 duration-500">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-none bg-cyber-black border-2 border-cyber-border z-10 shrink-0 group-hover:border-cyber-yellow transition-colors rotate-45 group-hover:rotate-0 duration-500">
                     <BookOpen className="w-5 h-5 text-cyber-gray group-hover:text-cyber-yellow -rotate-45 group-hover:rotate-0 transition-all duration-500" />
                   </div>
                   <div className="flex-1 pb-4 group-hover:border-cyber-yellow/30 transition-colors">

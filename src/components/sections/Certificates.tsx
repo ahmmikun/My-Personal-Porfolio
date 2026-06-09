@@ -27,10 +27,9 @@ const certificates = [
   },
   {
     id: 4,
-    title: "Cyber Security Basics",
-    // Used a reliable fallback image for the broken Discord CDN link
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-    issuer: "IBM"
+    title: "AI Fundamentals",
+    image: "https://i.ibb.co/8DvsLC8Q/image.png",
+    issuer: "DataCamp"
   }
 ];
 
@@ -42,7 +41,7 @@ export function Certificates() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyber-yellow/5 rounded-full blur-[150px] pointer-events-none animate-[pulse_10s_ease-in-out_infinite]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        
+
         <div className="mb-16 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -57,7 +56,7 @@ export function Certificates() {
             </span>
             <div className="glow-line h-[1px] w-12" />
           </motion.div>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -88,12 +87,12 @@ export function Certificates() {
               aria-label={`View certificate for ${cert.title}`}
             >
               <CyberPanel3D className="p-2 bg-cyber-surface border border-cyber-border hover:border-cyber-yellow transition-colors duration-300 relative overflow-hidden">
-                
+
                 {/* Image Container */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-cyber-black">
                   {/* Scanline hover effect */}
                   <div className="absolute inset-0 bg-cyber-yellow/20 -translate-y-full group-hover:translate-y-full transition-transform duration-1000 ease-in-out z-10 pointer-events-none mix-blend-overlay" />
-                  
+
                   {/* Hover icon */}
                   <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-cyber-black/40 backdrop-blur-sm">
                     <div className="p-3 bg-cyber-yellow text-cyber-black rounded-full shadow-[0_0_15px_rgba(255,211,0,0.6)]">
@@ -101,8 +100,8 @@ export function Certificates() {
                     </div>
                   </div>
 
-                  <Image 
-                    src={cert.image} 
+                  <Image
+                    src={cert.image}
                     alt={cert.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
@@ -127,18 +126,18 @@ export function Certificates() {
 
       {/* Lightbox Modal */}
       {selectedImg && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-cyber-black/90 backdrop-blur-md p-4"
           onClick={() => setSelectedImg(null)}
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             className="relative w-full max-w-4xl aspect-[4/3] max-h-[90vh] cyber-panel p-2"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               onClick={() => setSelectedImg(null)}
               className="absolute -top-4 -right-4 w-10 h-10 bg-cyber-yellow text-cyber-black flex items-center justify-center rounded-full z-10 hover:scale-110 transition-transform shadow-[0_0_15px_rgba(255,211,0,0.5)] font-bold text-xl"
               aria-label="Close modal"
@@ -146,7 +145,7 @@ export function Certificates() {
               ×
             </button>
             <div className="relative w-full h-full bg-cyber-black overflow-hidden">
-              <Image 
+              <Image
                 src={selectedImg}
                 alt="Certificate full view"
                 fill

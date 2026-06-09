@@ -70,7 +70,7 @@ export function Hero() {
 
           <motion.div variants={itemVariants}>
             <h4 className="text-xl md:text-2xl font-medium text-cyber-gray mb-2">Hello!</h4>
-            <h1 className="text-5xl lg:text-7xl font-bold font-orbitron text-cyber-white leading-tight uppercase tracking-wide">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-orbitron text-cyber-white leading-tight uppercase tracking-wide">
               I'm <span className="text-cyber-yellow drop-shadow-[0_0_8px_rgba(255,211,0,0.4)]">Salman Ahmad.</span>
             </h1>
             <p className="text-cyber-gray text-sm md:text-base mt-3">
@@ -78,9 +78,9 @@ export function Hero() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="border-l-2 border-cyber-green/50 pl-6 py-2 my-2 relative">
-            <div className="absolute -left-[2px] top-0 w-[2px] h-full bg-cyber-green/20" />
-            <p className="text-lg md:text-2xl text-cyber-white font-light max-w-lg min-h-[2rem]">
+          <motion.div variants={itemVariants} className="border-l-2 border-cyber-yellow/50 pl-6 py-2 my-2 relative">
+            <div className="absolute -left-[2px] top-0 w-[2px] h-full bg-cyber-yellow/20" />
+            <p className="text-lg md:text-2xl text-cyber-white font-light max-w-lg min-h-[4rem] sm:min-h-[2rem]">
               {typedRole}
               <span className="inline-block w-2 h-6 ml-1 bg-cyber-yellow animate-pulse align-middle" />
             </p>
