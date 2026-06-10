@@ -130,7 +130,7 @@ export function Hero() {
             <div className="absolute inset-8 md:inset-0 z-10 clip-corner-tl clip-corner-br border-2 border-cyber-yellow/40 transition-all hover:border-cyber-yellow group bg-cyber-surface overflow-hidden">
               <div className="absolute inset-0 bg-cyber-yellow/20 -translate-y-full group-hover:translate-y-full transition-transform duration-1000 ease-in-out z-20 pointer-events-none mix-blend-overlay" />
               <Image 
-                src="https://i1-e.pinimg.com/736x/fe/b3/98/feb39831d135440c7070979dcba0c43b.jpg"
+                src="https://i.ibb.co/mVM1W4Jm/Salman-2.png"
                 alt="Salman Ahmad (ahmmikun)"
                 fill
                 className="object-cover filter grayscale-[30%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
