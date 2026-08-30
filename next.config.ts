@@ -9,6 +9,23 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Vary",
+            value: "Accept, Accept-Encoding",
+          },
+          {
+            key: "Link",
+            value: '</llms.txt>; rel="alternate"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml"',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -11,12 +11,13 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("Home");
 
   const links = [
-    { name: "HOME", href: "#Home" },
-    { name: "ABOUT", href: "#About" },
-    { name: "SKILLS", href: "#Skills" },
-    { name: "CERTIFICATES", href: "#Certificates" },
-    { name: "PROJECTS", href: "#Projects" },
-    { name: "CONTACT", href: "#Contact" },
+    { name: "HOME", href: "/#Home" },
+    { name: "ABOUT", href: "/#About" },
+    { name: "SKILLS", href: "/#Skills" },
+    { name: "CERTIFICATES", href: "/#Certificates" },
+    { name: "PROJECTS", href: "/#Projects" },
+    { name: "DOCS", href: "/docs" },
+    { name: "CONTACT", href: "/#Contact" },
   ];
 
   // Handle scroll events for navbar background and active section

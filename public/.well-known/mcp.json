@@ -1,0 +1,44 @@
+{
+  "name": "ahmmikun-portfolio-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) Server for Salman Ahmad (ahmmikun) portfolio",
+  "protocolVersion": "2024-11-05",
+  "endpoints": {
+    "streamableHttp": "https://ahmmikun.vercel.app/api/mcp",
+    "sse": "https://ahmmikun.vercel.app/api/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "get_portfolio_summary",
+      "description": "Returns an overview of Salman Ahmad (ahmmikun), including bio, roles, location, key statistics, and primary links."
+    },
+    {
+      "name": "get_skills",
+      "description": "Retrieves Salman Ahmad's categorized technical skills matrix."
+    },
+    {
+      "name": "get_projects",
+      "description": "Retrieves featured and active software projects created by Salman Ahmad."
+    },
+    {
+      "name": "get_developer_resources",
+      "description": "Returns all machine-readable developer URLs, OpenAPI spec, llms.txt, agent instructions, and endpoints."
+    },
+    {
+      "name": "send_contact_message",
+      "description": "Sends a direct contact message / transmission to Salman Ahmad."
+    }
+  ]
+}

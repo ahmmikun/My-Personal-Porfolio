@@ -9,9 +9,10 @@ import { FaLinkedin } from "react-icons/fa";
 
 // Simple typing effect hook
 function useTypingEffect(text: string, speed: number = 50) {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState(text);
 
   useEffect(() => {
+    setDisplayedText("");
     let i = 0;
     const timer = setInterval(() => {
       i++;

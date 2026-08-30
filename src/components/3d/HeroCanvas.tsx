@@ -8,15 +8,17 @@ import { Float } from "@react-three/drei";
 function HeroConstruct({ isReducedMotion }: { isReducedMotion: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHover] = useState(false);
+  const timeRef = useRef(0);
 
   useFrame((state, delta) => {
     if (meshRef.current && !isReducedMotion) {
+      timeRef.current += delta;
       // Rotate idle
       meshRef.current.rotation.x += delta * 0.2;
       meshRef.current.rotation.y += delta * 0.3;
 
       // Pulse scale softly
-      const scale = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.05 + (hovered ? 0.2 : 0);
+      const scale = 1 + Math.sin(timeRef.current * 2) * 0.05 + (hovered ? 0.2 : 0);
       meshRef.current.scale.lerp(new THREE.Vector3(scale, scale, scale), 0.1);
     }
   });

@@ -1,0 +1,270 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Salman Ahmad (ahmmikun) Portfolio & Agent API",
+    "version": "1.0.0",
+    "description": "Production REST API and Model Context Protocol (MCP) tool interfaces for Salman Ahmad's portfolio (ahmmikun.vercel.app).",
+    "contact": {
+      "name": "Salman Ahmad",
+      "email": "xheikhsalman4422@gmail.com",
+      "url": "https://ahmmikun.vercel.app"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ahmmikun.vercel.app",
+      "description": "Production Edge Server"
+    },
+    {
+      "url": "http://localhost:3000",
+      "description": "Local Development Server"
+    }
+  ],
+  "paths": {
+    "/api/contact": {
+      "post": {
+        "summary": "Send Contact Message",
+        "description": "Submits a secure transmission / email to Salman Ahmad.",
+        "operationId": "sendContactMessage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["username", "email", "contact_message"],
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "Sender name or organization identity",
+                    "example": "Jane Doe"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Return email address",
+                    "example": "jane@example.com"
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject vector or topic",
+                    "example": "Project Inquiry: Full-Stack Web App"
+                  },
+                  "contact_message": {
+                    "type": "string",
+                    "description": "Message payload / details",
+                    "example": "Hello Salman, we would like to discuss a project with you."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message transmitted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Email sent successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Missing required fields"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server or transport failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Failed to send email"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mcp": {
+      "get": {
+        "summary": "MCP Live Handshake & SSE Stream",
+        "description": "Establishes a live Server-Sent Events (SSE) stream or Streamable HTTP connection for Model Context Protocol clients.",
+        "operationId": "mcpHandshake",
+        "responses": {
+          "200": {
+            "description": "Stream initialized or server info returned",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "MCP JSON-RPC Tool Execution",
+        "description": "Executes standard Model Context Protocol (MCP) JSON-RPC 2.0 requests, including initialize, tools/list, tools/call, resources/list, resources/read, prompts/list.",
+        "operationId": "mcpJsonRpc",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["jsonrpc", "method"],
+                "properties": {
+                  "jsonrpc": {
+                    "type": "string",
+                    "enum": ["2.0"]
+                  },
+                  "id": {
+                    "type": ["string", "number"]
+                  },
+                  "method": {
+                    "type": "string",
+                    "example": "tools/call"
+                  },
+                  "params": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON-RPC response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "summary": "Service Health Status",
+        "description": "Returns operational status and uptime details of the portfolio service.",
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Service is operational",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "healthy" },
+                    "service": { "type": "string", "example": "ahmmikun-portfolio" },
+                    "timestamp": { "type": "string", "example": "2026-08-30T08:00:00.000Z" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/skills": {
+      "get": {
+        "summary": "Retrieve Skills Matrix",
+        "description": "Returns structured technical capabilities categorized by domain.",
+        "operationId": "getSkills",
+        "responses": {
+          "200": {
+            "description": "List of categorized skill groups",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "category": { "type": "string" },
+                      "skills": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "summary": "Retrieve Software Projects Catalog",
+        "description": "Returns list of featured software repositories and projects with metadata.",
+        "operationId": "getProjects",
+        "responses": {
+          "200": {
+            "description": "List of projects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": { "type": "string" },
+                      "subtitle": { "type": "string" },
+                      "description": { "type": "string" },
+                      "link": { "type": "string" },
+                      "tech": { "type": "array", "items": { "type": "string" } }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
