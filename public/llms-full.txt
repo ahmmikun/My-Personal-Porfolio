@@ -75,7 +75,25 @@ Salman holds an educational background in Computer Science and Software Engineer
 - **Stack**: Node.js, Express, REST Architecture, Cloudflare
 - **Details**: A multi-functional RESTful API providing high-speed endpoints for developer integration, web scraping, data extraction, and content processing.
 
-### Project 3: Neural AI Generative Interface
+### Project 3: BijliTrack
+- **Category**: Smart Electricity & Outage Monitoring Dashboard
+- **Repository**: https://github.com/ahmmikun/bijlitrack
+- **Stack**: Next.js 16, Express, MongoDB, Tailwind CSS 4, TypeScript
+- **Details**: A full-stack electricity monitoring platform for Pakistan that connects to CCMS/PITC public services to display real-time power status, feeder outages, 12-month billing history, and utility complaint tracking.
+
+### Project 4: GitRoasted
+- **Category**: AI Profile Roasting Engine
+- **Repository**: https://github.com/ahmmikun/GitRoasted
+- **Stack**: Next.js 16, React 19, TypeScript, MongoDB, Zod, AI
+- **Details**: An AI-powered GitHub profile roaster and analyzer with multi-provider fallback chains (OpenRouter, Gemini, OpenAI, Grok), Neo-Brutalist UI styling, rate limiting, and shareable roast links.
+
+### Project 5: Campus BookHub
+- **Category**: Academic Student Peer-to-Peer Book Exchange
+- **Repository**: https://github.com/ahmmikun/campus-bookhub
+- **Stack**: React 19, Vite, TypeScript, Tailwind CSS, Open Library API
+- **Details**: A university student second-hand book marketplace and swap platform featuring Open Library API book search, local storage persistence, reservation management, and business analytics.
+
+### Project 6: Neural AI Generative Interface
 - **Category**: Artificial Intelligence & Conversational UI
 - **Repository**: https://github.com/ahmmikun/
 - **Stack**: Python, TensorFlow / PyTorch, React, Tailwind CSS

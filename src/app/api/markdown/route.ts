@@ -70,7 +70,22 @@ Salman Ahmad is a passionate Full Stack Developer and Graphic Designer with exte
 - **Tech Stack**: Express, Node.js, REST Architecture, Cloud Deployment
 - **Live URL**: [https://api.ahmmikun.live/](https://api.ahmmikun.live/)
 
-### Neural AI Model Interface
+### BijliTrack (Smart Electricity & Power Outage Dashboard)
+- **Description**: A full-stack electricity monitoring platform for Pakistani utility consumers to track live power status, feeder outages, 12-month billing trends, and CCMS utility data from a unified dashboard.
+- **Tech Stack**: Next.js 16, Express, MongoDB, Tailwind CSS 4, TypeScript
+- **Repository**: [https://github.com/ahmmikun/bijlitrack](https://github.com/ahmmikun/bijlitrack)
+
+### GitRoasted (AI GitHub Profile Roasting Engine)
+- **Description**: An AI-powered GitHub profile analyzer generating witty roasts with multi-provider AI fallback (OpenRouter, Gemini, OpenAI, Grok), Neo-Brutalist UI, and shareable roast cards.
+- **Tech Stack**: Next.js 16, React 19, TypeScript, MongoDB, Zod, AI
+- **Repository**: [https://github.com/ahmmikun/GitRoasted](https://github.com/ahmmikun/GitRoasted)
+
+### Campus BookHub (Student Peer-to-Peer Book Exchange)
+- **Description**: A university textbook exchange, sale, and rental marketplace platform featuring Open Library API integration, local persistence, reservation workflows, and analytics dashboard.
+- **Tech Stack**: React 19, Vite, TypeScript, Tailwind CSS, Open Library API
+- **Repository**: [https://github.com/ahmmikun/campus-bookhub](https://github.com/ahmmikun/campus-bookhub)
+
+### Neural AI Generative Interface
 - **Description**: An experimental conversational interface and generative AI integration leveraging modern Python backend and interactive React frontend.
 - **Tech Stack**: Python, TensorFlow / PyTorch, React, Tailwind CSS
 - **Repository**: [https://github.com/ahmmikun/](https://github.com/ahmmikun/)
@@ -318,7 +333,28 @@ If you have any questions, concerns, or requests regarding this Privacy Policy o
 - **Live Endpoint**: [https://api.ahmmikun.live/](https://api.ahmmikun.live/)
 - **Overview**: High-throughput RESTful API microservice delivering modular utility endpoints for media scraping, data transformation, image generation, and third-party integrations for developer applications.
 
-### 3. Neural AI Generative Interface
+### 3. BijliTrack (Smart Electricity & Power Outage Dashboard)
+- **Category**: Full-Stack Utility & Real-Time Monitoring
+- **Status**: Active & Deployed
+- **Tech Stack**: Next.js 16, Express, MongoDB, Tailwind CSS 4, TypeScript
+- **Repository**: [https://github.com/ahmmikun/bijlitrack](https://github.com/ahmmikun/bijlitrack)
+- **Overview**: A full-stack electricity monitoring platform for Pakistani consumers to monitor power status, feeder outages, 12-month billing history, and CCMS utility data from a single unified dashboard.
+
+### 4. GitRoasted (AI GitHub Profile Roaster)
+- **Category**: Artificial Intelligence & Web Applications
+- **Status**: Active & Deployed
+- **Tech Stack**: Next.js 16, React 19, TypeScript, MongoDB, Zod, AI
+- **Repository**: [https://github.com/ahmmikun/GitRoasted](https://github.com/ahmmikun/GitRoasted)
+- **Overview**: AI-powered GitHub profile analyzer generating witty roasts with multi-provider AI fallback (OpenRouter, Gemini, OpenAI, Grok), Neo-Brutalist styling, and shareable roast cards.
+
+### 5. Campus BookHub (Student Peer-to-Peer Book Exchange)
+- **Category**: Academic Marketplace & Frontend Architecture
+- **Status**: Completed Demo
+- **Tech Stack**: React 19, Vite, TypeScript, Tailwind CSS, Open Library API
+- **Repository**: [https://github.com/ahmmikun/campus-bookhub](https://github.com/ahmmikun/campus-bookhub)
+- **Overview**: A peer-to-peer textbook marketplace and exchange platform for university students featuring Open Library API integration, local storage persistence, book reservation, and analytics dashboard.
+
+### 6. Neural AI Generative Interface
 - **Category**: Artificial Intelligence & Conversational Systems
 - **Status**: Under Active Development
 - **Tech Stack**: Python, TensorFlow / PyTorch, React, Tailwind CSS

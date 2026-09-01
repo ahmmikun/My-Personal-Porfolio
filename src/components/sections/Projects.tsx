@@ -14,7 +14,7 @@ const projects = [
     image: "https://i.ibb.co/yhgtCXh/XLICON-V4-IMG.png",
     link: "https://github.com/ahmmikun/XLICON-V4-MD",
     type: "github",
-    tech: ["Node.js", "Baileys", "MongoDB"]
+    tech: ["Node.js", "Baileys", "MongoDB", "JavaScript"]
   },
   {
     id: 2,
@@ -24,10 +24,40 @@ const projects = [
     image: "https://i.ibb.co/fn15q6m/7090057.jpg",
     link: "https://api.ahmmikun.live/",
     type: "external",
-    tech: ["Express", "Node.js", "REST"]
+    tech: ["Express", "Node.js", "REST", "Cloudflare"]
   },
   {
     id: 3,
+    title: "BijliTrack",
+    subtitle: "Electricity & Power Monitor",
+    description: "A full-stack electricity monitoring platform for Pakistan enabling users to check live power status, track feeder outages, view 12-month billing history, and access utility services.",
+    image: "/projects/bijlitrack.png",
+    link: "https://github.com/ahmmikun/bijlitrack",
+    type: "github",
+    tech: ["Next.js 16", "Express", "MongoDB", "Tailwind CSS", "TypeScript"]
+  },
+  {
+    id: 4,
+    title: "GitRoasted",
+    subtitle: "AI Profile Roast Generator",
+    description: "An AI-powered GitHub profile analyzer and roaster featuring a multi-provider AI fallback chain (OpenRouter, Gemini, OpenAI, Grok), Neo-Brutalist UI, caching, and shareable roast cards.",
+    image: "/projects/gitroasted.png",
+    link: "https://github.com/ahmmikun/GitRoasted",
+    type: "github",
+    tech: ["Next.js 16", "React 19", "TypeScript", "MongoDB", "Zod", "AI"]
+  },
+  {
+    id: 5,
+    title: "Campus BookHub",
+    subtitle: "Student Book Marketplace",
+    description: "A university peer-to-peer textbook marketplace and exchange platform featuring Open Library API integration, local storage persistence, book reservation, and analytics dashboard.",
+    image: "/projects/campus-bookhub.png",
+    link: "https://github.com/ahmmikun/campus-bookhub",
+    type: "github",
+    tech: ["React 19", "Vite", "TypeScript", "Tailwind CSS", "Open Library API"]
+  },
+  {
+    id: 6,
     title: "LAUNCHING SOON",
     subtitle: "AI MODEL",
     description: "A next-generation AI model interface focused on conversational logic and generative capabilities. Currently under strict development protocols.",

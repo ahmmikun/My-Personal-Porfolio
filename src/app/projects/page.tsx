@@ -54,11 +54,68 @@ export default function ProjectsPage() {
             <div className="flex items-center gap-3">
               <FolderGit2 className="w-6 h-6 text-cyber-yellow" />
               <h3 className="text-xl font-orbitron font-bold text-cyber-white">
+                BijliTrack: Full-Stack Power &amp; Outage Monitoring System
+              </h3>
+            </div>
+            <p className="text-cyber-gray text-sm leading-relaxed font-light">
+              An electricity monitoring platform for Pakistani utility consumers. Connects directly to CCMS/PITC public endpoints with real-time feeder ON/OFF tracking, per-hour outage history charts, 12-month billing trends, and scheduled load shedding grids.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Next.js 16</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Express</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">MongoDB</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Tailwind CSS 4</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">TypeScript</span>
+            </div>
+          </div>
+
+          <div className="p-8 bg-cyber-surface border border-cyber-border clip-corner-br space-y-4">
+            <div className="flex items-center gap-3">
+              <FolderGit2 className="w-6 h-6 text-cyber-yellow" />
+              <h3 className="text-xl font-orbitron font-bold text-cyber-white">
+                GitRoasted: Multi-Provider AI Profile Roasting Engine
+              </h3>
+            </div>
+            <p className="text-cyber-gray text-sm leading-relaxed font-light">
+              An AI-powered GitHub profile analyzer generating witty roasts and developer metrics. Implements an automated fallback chain across OpenRouter, Gemini, OpenAI, and Grok with MongoDB caching and Neo-Brutalist UI styling.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Next.js 16</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">React 19</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">MongoDB</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Zod</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">AI Fallback</span>
+            </div>
+          </div>
+
+          <div className="p-8 bg-cyber-surface border border-cyber-border clip-corner-br space-y-4">
+            <div className="flex items-center gap-3">
+              <FolderGit2 className="w-6 h-6 text-cyber-yellow" />
+              <h3 className="text-xl font-orbitron font-bold text-cyber-white">
+                Campus BookHub: Student Peer-to-Peer Book Exchange
+              </h3>
+            </div>
+            <p className="text-cyber-gray text-sm leading-relaxed font-light">
+              A university student second-hand textbook exchange, sale, and rental platform. Features dynamic Open Library API search, cover image caching, zero-value swap flow, reservation state management, and an interactive business analytics dashboard.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">React 19</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Vite</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">TypeScript</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Tailwind CSS</span>
+              <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Open Library API</span>
+            </div>
+          </div>
+
+          <div className="p-8 bg-cyber-surface border border-cyber-border clip-corner-br space-y-4">
+            <div className="flex items-center gap-3">
+              <FolderGit2 className="w-6 h-6 text-cyber-yellow" />
+              <h3 className="text-xl font-orbitron font-bold text-cyber-white">
                 XLICON V4 MD: Multi-Device WhatsApp Architecture
               </h3>
             </div>
             <p className="text-cyber-gray text-sm leading-relaxed font-light">
-              Engineered using modern Node.js, the Baileys protocol library, and MongoDB, XLICON V4 MD is an enterprise-scale messaging bot handling real-time socket sessions with WhatsApp Multi-Device servers. Features include automated media transcoding, spam mitigation, dynamic command routing, and plugin-based extensibility.
+              Engineered using modern Node.js, the Baileys protocol library, and MongoDB, XLICON V4 MD is an enterprise-scale messaging bot handling real-time socket sessions with WhatsApp Multi-Device servers. Features include automated media transcoding, spam mitigation, and plugin-based extensibility.
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               <span className="px-2 py-1 bg-cyber-black text-cyber-yellow font-mono text-xs border border-cyber-border">Node.js</span>
