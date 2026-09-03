@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Salman Ahmad Portfolio (ahmmikun)
 
-## Getting Started
+Official agent-ready web platform and developer portfolio for **Salman Ahmad (ahmmikun)**, Full Stack Developer & Systems Engineer based in Lahore, Punjab, Pakistan.
 
-First, run the development server:
+- **Canonical URL**: [https://salmanahmad.tech](https://salmanahmad.tech)
+- **Developer Documentation**: [https://salmanahmad.tech/docs](https://salmanahmad.tech/docs)
+- **OpenAPI 3.1.0 Specification**: [https://salmanahmad.tech/openapi.json](https://salmanahmad.tech/openapi.json)
+- **Model Context Protocol Manifest**: [https://salmanahmad.tech/.well-known/mcp.json](https://salmanahmad.tech/.well-known/mcp.json)
+- **LLM Agent Index**: [https://salmanahmad.tech/llms.txt](https://salmanahmad.tech/llms.txt)
+
+---
+
+## Official CLI Tool (`salmanahmad`)
+
+Developers and AI agents can execute the official CLI tool with zero installation using `npx`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Print interactive portfolio summary
+npx salmanahmad bio
+
+# Retrieve technical skills matrix formatted as JSON
+npx salmanahmad skills --category Backend --json
+
+# Query software projects catalog
+npx salmanahmad projects --filter ai --json
+
+# Dispatch a verified contact message
+npx salmanahmad contact --name "Jane Doe" --email "jane@example.com" --message "Project inquiry"
+
+# Launch stdio Model Context Protocol (MCP) server
+npx salmanahmad mcp
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Model Context Protocol (MCP) Server
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Connect Claude Desktop, Cursor, ChatGPT, or autonomous agents to the live first-party MCP server:
 
-## Learn More
+- **Streamable HTTP & SSE Endpoint**: `https://salmanahmad.tech/api/mcp` (and `https://salmanahmad.tech/api/v1/mcp`)
+- **Protocol Version**: `2024-11-05`
+- **Exposed Tools**: `get_portfolio_summary`, `get_skills`, `get_projects`, `get_developer_resources`, `send_contact_message`
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## REST API (v1)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `POST /api/v1/contact`: Submit contact inquiries with RFC 9457 validation errors.
+- `GET /api/v1/skills`: Query categorized skills matrix.
+- `GET /api/v1/projects`: Query project catalog with keyword filters.
+- `GET /api/v1/health`: System health and uptime monitoring.
+- `GET/POST /api/v1/mcp`: Model Context Protocol server.
 
-## Deploy on Vercel
+All API responses return standard RFC RateLimit headers (`RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset`, `RateLimit-Policy`) and `Retry-After` on HTTP 429.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
+
+# Run agent readiness verification tests
+npm run test:agent
+
+# Build optimized production bundle
+npm run build
+```

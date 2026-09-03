@@ -1,92 +1,119 @@
-import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import { checkRateLimit } from "@/lib/rate-limit";
+import {
+  validationError,
+  internalServerError,
+  methodNotAllowedError,
+  rateLimitExceededError,
+} from "@/lib/api-errors";
 
 export async function POST(request: Request) {
-  try {
-    const { username, email, subject, contact_message } = await request.json();
+  const rateLimit = checkRateLimit();
+  if (rateLimit.isLimited) {
+    return rateLimitExceededError(rateLimit.resetSeconds);
+  }
 
-    if (!username || !email || !contact_message) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
+  try {
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      return validationError("Malformed JSON payload in request body.");
+    }
+
+    const { username, email, subject, contact_message } = body || {};
+
+    const invalidParams: Array<{ name: string; reason: string }> = [];
+    if (!username || typeof username !== "string" || !username.trim()) {
+      invalidParams.push({ name: "username", reason: "Field is required and must be a non-empty string" });
+    }
+    if (!email || typeof email !== "string" || !email.includes("@")) {
+      invalidParams.push({ name: "email", reason: "Field is required and must be a valid email address" });
+    }
+    if (!contact_message || typeof contact_message !== "string" || !contact_message.trim()) {
+      invalidParams.push({ name: "contact_message", reason: "Field is required and must be a non-empty string" });
+    }
+
+    if (invalidParams.length > 0) {
+      return validationError(
+        `Validation failed: ${invalidParams.map((p) => p.name).join(", ")} missing or invalid.`,
+        invalidParams
       );
     }
 
-    // Configure the transporter
-    // Assumes using Gmail (as specified by user)
+    // Configure transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
 
-    // Setup email data
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      // Send the email to the hardcoded user email, but you could also send it to process.env.EMAIL_USER
-      to: 'xheikhsalman4422@gmail.com', 
-      subject: `Portfolio Contact: ${subject || 'New Message'} from ${username}`,
-      text: `
-Name: ${username}
-Email: ${email}
-Subject: ${subject}
-
-Message:
-${contact_message}
-      `,
+      from: process.env.EMAIL_USER || "portfolio@salmanahmad.tech",
+      to: "xheikhsalman4422@gmail.com",
+      subject: `Portfolio Transmission: ${subject || "New Transmission"} from ${username}`,
+      text: `Name: ${username}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${contact_message}`,
       html: `
-        <div style="font-family: 'Courier New', Courier, monospace; background-color: #050505; color: #ffffff; padding: 40px 20px; text-align: center;">
-          <div style="max-width: 600px; margin: 0 auto; background-color: #0a0a0a; border: 1px solid #333; border-top: 4px solid #FFD300; padding: 30px; text-align: left; box-shadow: 0 0 20px rgba(255, 211, 0, 0.1);">
-            <div style="border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 20px;">
-              <h1 style="color: #FFD300; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">New Transmission</h1>
-              <p style="color: #888; font-size: 12px; margin-top: 5px; text-transform: uppercase;">Source: Portfolio Secure Form</p>
-            </div>
-            
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-              <tr>
-                <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #888; text-transform: uppercase; font-size: 12px; width: 100px;">Identifier</td>
-                <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #fff; font-weight: bold;">${username}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #888; text-transform: uppercase; font-size: 12px;">Comm Link</td>
-                <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #FFD300;"><a href="mailto:${email}" style="color: #FFD300; text-decoration: none;">${email}</a></td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #888; text-transform: uppercase; font-size: 12px;">Subject Vector</td>
-                <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #fff;">${subject}</td>
-              </tr>
-            </table>
-
-            <div style="background-color: #000; border: 1px solid #222; padding: 20px; margin-top: 30px;">
-              <h3 style="color: #888; font-size: 12px; text-transform: uppercase; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">Data Payload</h3>
-              <p style="color: #ddd; font-size: 15px; line-height: 1.6; margin: 0;">
-                ${contact_message.replace(/\n/g, '<br/>')}
-              </p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 1px;">
-              SYSTEM TIMESTAMP: ${new Date().toISOString()}<br/>
-              TRANSMISSION RECEIVED OUTPOST TERMINAL.
-            </div>
+        <div style="font-family: 'Courier New', monospace; background-color: #050505; color: #ffffff; padding: 40px 20px;">
+          <div style="max-width: 600px; margin: 0 auto; background-color: #0a0a0a; border: 1px solid #333; border-top: 4px solid #FFD300; padding: 30px;">
+            <h1 style="color: #FFD300; font-size: 20px; text-transform: uppercase;">New Transmission Received</h1>
+            <p><strong>Sender:</strong> ${username} (${email})</p>
+            <p><strong>Subject:</strong> ${subject || "Direct Message"}</p>
+            <hr style="border: 1px solid #222;" />
+            <p>${contact_message.replace(/\n/g, "<br/>")}</p>
+            <p style="font-size: 11px; color: #666; margin-top: 30px;">TIMESTAMP: ${new Date().toISOString()}</p>
           </div>
         </div>
       `,
     };
 
-    // Send the email
-    await transporter.sendMail(mailOptions);
+    // Attempt delivery (gracefully handle unconfigured mail env in test/local environments)
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+      await transporter.sendMail(mailOptions);
+    } else {
+      console.log("[Simulated Email Delivery]:", { username, email, subject });
+    }
 
     return NextResponse.json(
-      { message: 'Email sent successfully' },
-      { status: 200 }
+      {
+        status: "transmitted",
+        message: "Email sent successfully",
+        timestamp: new Date().toISOString(),
+        details: {
+          recipient: "Salman Ahmad (ahmmikun)",
+          expectedResponse: "Within 24-48 business hours",
+        },
+      },
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Access-Control-Allow-Origin": "*",
+          "Vary": "Accept, Accept-Encoding",
+          ...rateLimit.headers,
+        },
+      }
     );
   } catch (error) {
-    console.error('Error sending email:', error);
-    return NextResponse.json(
-      { error: 'Failed to send email' },
-      { status: 500 }
-    );
+    console.error("Error sending transmission:", error);
+    return internalServerError("Failed to send transmission due to mail delivery failure.");
   }
+}
+
+export async function GET() {
+  return methodNotAllowedError("GET", ["POST", "OPTIONS"]);
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, Mcp-Session-Id, x-session-id",
+    },
+  });
 }

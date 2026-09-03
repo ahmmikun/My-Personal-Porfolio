@@ -1,6 +1,10 @@
 {
   "name": "ahmmikun-portfolio",
   "version": "0.1.0",
+  "bin": {
+    "salmanahmad": "./bin/salmanahmad.js",
+    "ahmmikun": "./bin/salmanahmad.js"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",

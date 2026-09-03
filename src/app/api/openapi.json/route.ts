@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { internalServerError } from "@/lib/api-errors";
 
 export async function GET() {
+  const rateLimit = checkRateLimit();
+
   try {
     const filePath = path.join(process.cwd(), "public", "openapi.json");
     const fileContents = fs.readFileSync(filePath, "utf-8");
@@ -15,12 +19,22 @@ export async function GET() {
         "Vary": "Accept, Accept-Encoding",
         "Cache-Control": "public, max-age=3600, s-maxage=86400",
         "Access-Control-Allow-Origin": "*",
+        "X-API-Version": "1.0.0",
+        ...rateLimit.headers,
       },
     });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to load OpenAPI spec" },
-      { status: 500 }
-    );
+    return internalServerError("Failed to load OpenAPI specification file.");
   }
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
 }

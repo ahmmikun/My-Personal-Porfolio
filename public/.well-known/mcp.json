@@ -1,11 +1,12 @@
 {
-  "name": "ahmmikun-portfolio-mcp",
+  "name": "salmanahmad-portfolio-mcp",
   "version": "1.0.0",
-  "description": "Model Context Protocol (MCP) Server for Salman Ahmad (ahmmikun) portfolio",
+  "description": "Model Context Protocol (MCP) Server for Salman Ahmad Portfolio (ahmmikun)",
   "protocolVersion": "2024-11-05",
   "endpoints": {
-    "streamableHttp": "https://ahmmikun.vercel.app/api/mcp",
-    "sse": "https://ahmmikun.vercel.app/api/mcp"
+    "streamableHttp": "https://salmanahmad.tech/api/mcp",
+    "sse": "https://salmanahmad.tech/api/mcp",
+    "v1": "https://salmanahmad.tech/api/v1/mcp"
   },
   "capabilities": {
     "tools": {

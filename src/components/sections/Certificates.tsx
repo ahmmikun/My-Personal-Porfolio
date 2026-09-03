@@ -112,9 +112,9 @@ export function Certificates() {
                 <div className="p-4 flex items-center justify-between border-t border-cyber-border mt-2 bg-cyber-black">
                   <div>
                     <div className="text-[10px] text-cyber-gray tracking-widest uppercase mb-1">{cert.issuer}</div>
-                    <h4 className="text-sm font-bold text-cyber-white uppercase tracking-wider line-clamp-1 mr-2 group-hover:text-cyber-yellow transition-colors">
+                    <h3 className="text-sm font-bold text-cyber-white uppercase tracking-wider line-clamp-1 mr-2 group-hover:text-cyber-yellow transition-colors">
                       {cert.title}
-                    </h4>
+                    </h3>
                   </div>
                   <div className="w-2 h-2 shrink-0 rounded-full bg-cyber-green pulse-green" />
                 </div>

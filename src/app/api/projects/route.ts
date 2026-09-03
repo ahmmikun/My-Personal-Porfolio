@@ -1,4 +1,5 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export const projectsData = [
   {
@@ -57,13 +58,50 @@ export const projectsData = [
   },
 ];
 
-export async function GET() {
-  return NextResponse.json(projectsData, {
+export async function GET(request: NextRequest) {
+  const rateLimit = checkRateLimit();
+  const { searchParams } = new URL(request.url);
+  const filterParam = searchParams.get("filter")?.toLowerCase();
+  const limitParam = searchParams.get("limit");
+
+  let filtered = projectsData;
+  if (filterParam) {
+    filtered = filtered.filter(
+      (p) =>
+        p.title.toLowerCase().includes(filterParam) ||
+        p.description.toLowerCase().includes(filterParam) ||
+        p.subtitle.toLowerCase().includes(filterParam) ||
+        p.tech.some((t) => t.toLowerCase().includes(filterParam))
+    );
+  }
+
+  if (limitParam) {
+    const limit = parseInt(limitParam, 10);
+    if (!isNaN(limit) && limit > 0) {
+      filtered = filtered.slice(0, limit);
+    }
+  }
+
+  return NextResponse.json(filtered, {
     status: 200,
     headers: {
+      "Content-Type": "application/json; charset=utf-8",
       "Vary": "Accept, Accept-Encoding",
       "Cache-Control": "public, max-age=3600, s-maxage=86400",
       "Access-Control-Allow-Origin": "*",
+      "X-API-Version": "1.0.0",
+      ...rateLimit.headers,
+    },
+  });
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, Mcp-Session-Id, x-session-id",
     },
   });
 }

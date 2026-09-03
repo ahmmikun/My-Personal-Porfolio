@@ -24,9 +24,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ahmmikun.vercel.app"),
+  metadataBase: new URL("https://salmanahmad.tech"),
   title: {
-    default: "Salman Ahmad (ahmmikun) | Full Stack Developer & Systems Engineer",
+    default: "Salman Ahmad Portfolio | Full Stack Developer & Systems Engineer (ahmmikun)",
     template: "%s | Salman Ahmad Portfolio",
   },
   description:
@@ -46,19 +46,19 @@ export const metadata: Metadata = {
     "Lahore Developer",
     "Model Context Protocol",
   ],
-  authors: [{ name: "Salman Ahmad", url: "https://ahmmikun.vercel.app" }],
+  authors: [{ name: "Salman Ahmad", url: "https://salmanahmad.tech" }],
   creator: "Salman Ahmad",
   publisher: "Salman Ahmad",
   applicationName: "Salman Ahmad Portfolio",
   alternates: {
-    canonical: "/",
+    canonical: "https://salmanahmad.tech",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ahmmikun.vercel.app",
+    url: "https://salmanahmad.tech",
     siteName: "Salman Ahmad Portfolio",
-    title: "Salman Ahmad (ahmmikun) | Full Stack Developer & Systems Engineer",
+    title: "Salman Ahmad Portfolio | Full Stack Developer & Systems Engineer (ahmmikun)",
     description:
       "Full Stack Developer & Graphic Designer — building high-performance web applications, 3D WebGL interfaces, and automation tools.",
     images: [
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salman Ahmad (ahmmikun) | Full Stack Developer",
+    title: "Salman Ahmad Portfolio | Full Stack Developer & Systems Engineer (ahmmikun)",
     description:
       "Full Stack Developer & Graphic Designer — building high-performance web applications, 3D WebGL interfaces, and automation tools.",
     images: ["/og-image.png"],
@@ -88,25 +88,27 @@ const jsonLdSchema = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://ahmmikun.vercel.app/#person",
+      "@id": "https://salmanahmad.tech/#person",
       "name": "Salman Ahmad",
-      "alternateName": ["ahmmikun", "Ahmmi Kun"],
+      "alternateName": ["ahmmikun", "Ahmmi Kun", "Salman Ahmad Portfolio", "Salman Ahmad Developer"],
       "description":
         "Full Stack Developer & Graphic Designer specializing in Next.js, React, Node.js, Three.js 3D web applications, and automation systems.",
       "jobTitle": "Full Stack Developer & Systems Engineer",
-      "url": "https://ahmmikun.vercel.app",
-      "image": "https://ahmmikun.vercel.app/og-image.png",
+      "url": "https://salmanahmad.tech",
+      "image": "https://salmanahmad.tech/og-image.png",
       "email": "mailto:xheikhsalman4422@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Lahore",
         "addressRegion": "Punjab",
+        "postalCode": "54000",
         "addressCountry": "PK",
       },
       "sameAs": [
         "https://github.com/ahmmikun",
         "https://www.linkedin.com/in/ahmmikun/",
         "https://instagram.com/ahmmikun",
+        "https://salmanahmad.tech",
       ],
       "knowsAbout": [
         "Full Stack Web Development",
@@ -129,6 +131,14 @@ const jsonLdSchema = {
         "@type": "EducationalOrganization",
         "name": "Superior University",
         "location": "Lahore, Pakistan",
+      },
+      "brand": {
+        "@type": "Brand",
+        "@id": "https://salmanahmad.tech/#brand",
+        "name": "Salman Ahmad Portfolio",
+        "alternateName": "ahmmikun",
+        "url": "https://salmanahmad.tech",
+        "logo": "https://salmanahmad.tech/og-image.png",
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -171,24 +181,24 @@ const jsonLdSchema = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://ahmmikun.vercel.app/#website",
-      "url": "https://ahmmikun.vercel.app",
+      "@id": "https://salmanahmad.tech/#website",
+      "url": "https://salmanahmad.tech",
       "name": "Salman Ahmad Portfolio",
       "alternateName": "ahmmikun portfolio",
       "description": "Official portfolio and developer platform for Salman Ahmad (ahmmikun).",
       "publisher": {
-        "@id": "https://ahmmikun.vercel.app/#person",
+        "@id": "https://salmanahmad.tech/#person",
       },
       "inLanguage": "en-US",
     },
     {
       "@type": "ProfilePage",
-      "@id": "https://ahmmikun.vercel.app/#webpage",
-      "url": "https://ahmmikun.vercel.app",
-      "name": "Salman Ahmad (ahmmikun) | Full Stack Developer & Systems Engineer",
+      "@id": "https://salmanahmad.tech/#webpage",
+      "url": "https://salmanahmad.tech",
+      "name": "Salman Ahmad Portfolio | Full Stack Developer & Systems Engineer (ahmmikun)",
       "description": "Official portfolio of Salman Ahmad (ahmmikun), Full Stack Developer & Graphic Designer.",
       "mainEntity": {
-        "@id": "https://ahmmikun.vercel.app/#person",
+        "@id": "https://salmanahmad.tech/#person",
       },
     },
   ],

@@ -70,7 +70,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <h4 className="text-xl md:text-2xl font-medium text-cyber-gray mb-2">Hello!</h4>
+            <p className="text-xl md:text-2xl font-medium text-cyber-gray mb-2">Hello!</p>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-orbitron text-cyber-white leading-tight uppercase tracking-wide">
               I'm <span className="text-cyber-yellow drop-shadow-[0_0_8px_rgba(255,211,0,0.4)]">Salman Ahmad.</span>
             </h1>
