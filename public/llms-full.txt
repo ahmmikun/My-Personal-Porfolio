@@ -144,6 +144,7 @@ Commands:
 - `GET/POST /api/v1/mcp` (and `/api/mcp`): Model Context Protocol server.
 - `GET /openapi.json` & `GET /api/openapi.json`: OpenAPI 3.1.0 schema with RFC 9457 typed errors.
 - `GET /sitemap.xml`: XML sitemap of all routes.
+- `GET /sitemap.txt`: Plain text sitemap listing all canonical routes.
 
 ---
 

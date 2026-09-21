@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Link",
-            value: '</llms.txt>; rel="alternate"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml"',
+            value: '</llms.txt>; rel="alternate"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml", </sitemap.txt>; rel="sitemap"; type="text/plain"',
           },
         ],
       },

@@ -6,6 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://salmanahmad.tech/sitemap.xml",
+    sitemap: [
+      "https://salmanahmad.tech/sitemap.xml",
+      "https://salmanahmad.tech/sitemap.txt",
+    ],
   };
 }
