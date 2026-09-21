@@ -13,6 +13,10 @@
     "lint": "eslint",
     "test:agent": "node tests/verify-agent-readiness.mjs"
   },
+  "allowScripts": {
+    "sharp": true,
+    "unrs-resolver": true
+  },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
